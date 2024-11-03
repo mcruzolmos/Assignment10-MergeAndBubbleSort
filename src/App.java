@@ -38,8 +38,6 @@ public class App {
         mergeSort(right, comparator);
         merge(array, left, right, comparator);
     }
-
-    // Merge helper method
     private static <T> void merge(T[] array, T[] left, T[] right, Comparator<? super T> comparator) {
         int i = 0, j = 0, k = 0;
 
@@ -51,8 +49,6 @@ public class App {
                 array[k++] = right[j++];
             }
         }
-
-        // Copy remaining elements
         while (i < left.length) {
             array[k++] = left[i++];
         }
@@ -61,13 +57,11 @@ public class App {
             array[k++] = right[j++];
         }
     }
-
-    // Main method for testing
     public static void main(String[] args) {
         Integer[] numbersBubble = {5, 3, 8, 4, 2};
         Integer[] numbersMerge = {5, 3, 8, 4, 2};
 
-        // Bubble Sort timing
+        // Bubble Sort
         System.out.println("Before Bubble Sort: " + Arrays.toString(numbersBubble));
         long startBubble = System.nanoTime();
         bubbleSort(numbersBubble, Comparator.naturalOrder());
@@ -76,7 +70,7 @@ public class App {
         long durationBubble = endBubble - startBubble;
         System.out.println("Bubble Sort took: " + durationBubble + " nanoseconds");
 
-        // Merge Sort timing
+        // Merge Sort
         System.out.println("\nBefore Merge Sort: " + Arrays.toString(numbersMerge));
         long startMerge = System.nanoTime();
         mergeSort(numbersMerge, Comparator.naturalOrder());
